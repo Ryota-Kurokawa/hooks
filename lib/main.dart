@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
@@ -41,8 +43,7 @@ class start extends HookWidget {
                 ),
                 controller: _controller,
                 onSubmitted: (val) {
-                  final _list = _todoList.value;
-                  _todoList.value = [..._list, val];
+                  _todoList.value = [..._todoList.value, val];
                   _controller.clear();
                 },
               ),
