@@ -23,7 +23,6 @@ class start extends HookWidget {
   Widget build(BuildContext context) {
     final TextEditingController _controller = TextEditingController();
     final _todoList = useState(<String>[]);
-    useEffect(() => () {}, _todoList.value);
 
     return Scaffold(
         appBar: AppBar(
@@ -40,7 +39,8 @@ class start extends HookWidget {
                   hintText: "Enter your task",
                   border: OutlineInputBorder(),
                 ),
-                onSubmitted: (val) async {
+                controller: _controller,
+                onSubmitted: (val) {
                   final _list = _todoList.value;
                   _list.add(val);
                   _todoList.value = [..._list];
