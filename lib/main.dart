@@ -42,7 +42,7 @@ class start extends HookWidget {
                 controller: _controller,
                 onSubmitted: (val) {
                   final _list = _todoList.value;
-                  _todoList.value = [..._list..add(val)];
+                  _todoList.value = [..._list, val];
                   _controller.clear();
                 },
               ),
